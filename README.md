@@ -4,6 +4,11 @@
 
 ![](screenshot.png)
 
+## What we removed
+
+* Initial prompt (Modernizr, Bootstrap)
+* jQuery
+
 
 ## Features
 
