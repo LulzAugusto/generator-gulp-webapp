@@ -34,49 +34,9 @@ module.exports = yeoman.generators.Base.extend({
 
   initializing: function () {
     this.pkg = require('../package.json');
-  },
-
-  prompting: function () {
-    var done = this.async();
-
-    if (!this.options['skip-welcome-message']) {
-      this.log(yosay('\'Allo \'allo! Out of the box I include HTML5 Boilerplate, jQuery, and a gulpfile.js to build your app.'));
-    }
-
-    var prompts = [{
-      type: 'checkbox',
-      name: 'features',
-      message: 'What more would you like?',
-      choices: [{
-        name: 'Sass',
-        value: 'includeSass',
-        checked: true
-      }, {
-        name: 'Bootstrap',
-        value: 'includeBootstrap',
-        checked: true
-      }, {
-        name: 'Modernizr',
-        value: 'includeModernizr',
-        checked: true
-      }]
-    }];
-
-    this.prompt(prompts, function (answers) {
-      var features = answers.features;
-
-      var hasFeature = function (feat) {
-        return features.indexOf(feat) !== -1;
-      };
-
-      // manually deal with the response, get back and store the results.
-      // we change a bit this way of doing to automatically do this in the self.prompt() method.
-      this.includeSass = hasFeature('includeSass');
-      this.includeBootstrap = hasFeature('includeBootstrap');
-      this.includeModernizr = hasFeature('includeModernizr');
-
-      done();
-    }.bind(this));
+    this.includeSass = true;
+    this.includeBootstrap = false;
+    this.includeModernizr = false;
   },
 
   writing: {
@@ -99,17 +59,6 @@ module.exports = yeoman.generators.Base.extend({
         private: true,
         dependencies: {}
       };
-
-      if (this.includeBootstrap) {
-        var bs = 'bootstrap' + (this.includeSass ? '-sass-official' : '');
-        bower.dependencies[bs] = '~3.2.0';
-      } else {
-        bower.dependencies.jquery = '~2.1.1';
-      }
-
-      if (this.includeModernizr) {
-        bower.dependencies.modernizr = '~2.8.1';
-      }
 
       this.copy('bowerrc', '.bowerrc');
       this.write('bower.json', JSON.stringify(bower, null, 2));
@@ -143,32 +92,6 @@ module.exports = yeoman.generators.Base.extend({
     writeIndex: function () {
       this.indexFile = this.src.read('index.html');
       this.indexFile = this.engine(this.indexFile, this);
-
-      // wire Bootstrap plugins
-      if (this.includeBootstrap) {
-        var bs = '../bower_components/';
-
-        if (this.includeSass) {
-          bs += 'bootstrap-sass-official/assets/javascripts/bootstrap/';
-        } else {
-          bs += 'bootstrap/js/';
-        }
-
-        this.indexFile = this.appendScripts(this.indexFile, 'scripts/plugins.js', [
-          bs + 'affix.js',
-          bs + 'alert.js',
-          bs + 'dropdown.js',
-          bs + 'tooltip.js',
-          bs + 'modal.js',
-          bs + 'transition.js',
-          bs + 'button.js',
-          bs + 'popover.js',
-          bs + 'carousel.js',
-          bs + 'scrollspy.js',
-          bs + 'collapse.js',
-          bs + 'tab.js'
-        ]);
-      }
 
       this.indexFile = this.appendFiles({
         html: this.indexFile,

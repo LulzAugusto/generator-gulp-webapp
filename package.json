@@ -1,5 +1,5 @@
 {
-  "name": "generator-gulp-webapp",
+  "name": "generator-gulp-clean-webapp",
   "version": "0.1.0",
   "description": "Scaffold out a front-end web app",
   "license": "BSD",
