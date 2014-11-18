@@ -8,6 +8,7 @@
 
 * Initial prompt (Modernizr, Bootstrap)
 * jQuery
+* Analytics from index.html template
 
 
 ## Features
