@@ -1,8 +1,6 @@
-# Web app generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-gulp-webapp.svg?branch=master)](http://travis-ci.org/yeoman/generator-gulp-webapp)
+# Clean version of Web app generator
 
 > [Yeoman](http://yeoman.io) generator that scaffolds out a front-end web app using [gulp](http://gulpjs.com/) for the build process
-
-![](screenshot.png)
 
 ## What we removed
 
@@ -25,7 +23,7 @@ Please see our [gulpfile.js](app/templates/gulpfile.js) for up to date informati
 *For more information on what this generator can do for you, take a look at the [gulp plugins](app/templates/_package.json) used in our `package.json`.*
 
 
-## Getting Started
+## Getting Started (TODO. Following steps won't work)
 
 - Install: `npm install -g generator-gulp-webapp`
 - Run: `yo gulp-webapp`
@@ -51,11 +49,6 @@ We have [recipes](docs/recipes/README.md) for integrating other popular technolo
 
 - `--test-framework=<framework>`
   Defaults to `mocha`. Can be switched for another supported testing framework like `jasmine`.
-
-
-## Contribute
-
-See the [contributing docs](contributing.md).
 
 
 ## License
