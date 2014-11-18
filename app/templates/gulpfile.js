@@ -23,18 +23,13 @@ gulp.task('jshint', function () {
     .pipe($.jshint.reporter('fail'));
 });
 
-gulp.task('html', ['styles'], function () {<% if (includeBootstrap && includeSass) { %>
-  var lazypipe = require('lazypipe');
-  var cssChannel = lazypipe()
-    .pipe($.csso)
-    .pipe($.replace, 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap','fonts');<% } %>
+gulp.task('html', ['styles'], function () {
   var assets = $.useref.assets({searchPath: '{.tmp,app}'});
 
   return gulp.src('app/*.html')
     .pipe(assets)
-    .pipe($.if('*.js', $.uglify()))<% if (includeBootstrap && includeSass) { %>
-    .pipe($.if('*.css', cssChannel()))<% } else { %>
-    .pipe($.if('*.css', $.csso()))<% } %>
+    .pipe($.if('*.js', $.uglify()))
+    .pipe($.if('*.css', $.csso()))
     .pipe(assets.restore())
     .pipe($.useref())
     .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
@@ -101,7 +96,7 @@ gulp.task('wiredep', function () {
     .pipe(gulp.dest('app/styles'));
 <% } %>
   gulp.src('app/*.html')
-    .pipe(wiredep(<% if (includeSass && includeBootstrap) { %>{exclude: ['bootstrap-sass-official']}<% } %>))
+    .pipe(wiredep())
     .pipe(gulp.dest('app'));
 });
 

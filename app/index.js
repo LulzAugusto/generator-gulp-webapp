@@ -35,8 +35,6 @@ module.exports = yeoman.generators.Base.extend({
   initializing: function () {
     this.pkg = require('../package.json');
     this.includeSass = true;
-    this.includeBootstrap = false;
-    this.includeModernizr = false;
   },
 
   writing: {
