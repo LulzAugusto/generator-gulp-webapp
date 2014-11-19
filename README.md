@@ -1,8 +1,8 @@
-# Clean version of Web app generator
+# Simpler version of [Web app generator](https://github.com/yeoman/generator-gulp-webapp)
 
 > [Yeoman](http://yeoman.io) generator that scaffolds out a front-end web app using [gulp](http://gulpjs.com/) for the build process
 
-## What we removed
+## What was removed
 
 * Initial prompt (Modernizr, Bootstrap)
 * jQuery
@@ -23,10 +23,12 @@ Please see our [gulpfile.js](app/templates/gulpfile.js) for up to date informati
 *For more information on what this generator can do for you, take a look at the [gulp plugins](app/templates/_package.json) used in our `package.json`.*
 
 
-## Getting Started (TODO. Following steps won't work)
+## Getting Started
 
-- Install: `npm install -g generator-gulp-webapp`
-- Run: `yo gulp-webapp`
+- Clone: 'git clone https://github.com/Hodes/generator-gulp-webapp generator-simpler-gulp-webapp' (folder name matters)
+- Go into it: `cd generator-simpler-gulp-webapp`
+- Create link: `npm link`
+- In your new project folder run: `yo simpler-gulp-webapp`
 - Run `gulp` for building to the `dist` directory and `gulp serve` for preview
 
 
