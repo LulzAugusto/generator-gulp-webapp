@@ -8,13 +8,12 @@
 * jQuery
 * Analytics from index.html template
 
-
 ## Features
 
 Please see our [gulpfile.js](app/templates/gulpfile.js) for up to date information on what we support.
 
 * CSS Autoprefixing
-* Built-in preview server with livereload
+* Built-in preview server with livereload and browser synchronization (new)
 * Automagically compile Sass
 * Automagically lint your scripts
 * Awesome image optimization
