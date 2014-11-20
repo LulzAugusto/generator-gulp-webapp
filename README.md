@@ -24,12 +24,9 @@ Please see our [gulpfile.js](app/templates/gulpfile.js) for up to date informati
 
 ## Getting Started
 
-- Clone: `git clone https://github.com/Hodes/generator-gulp-webapp generator-simpler-gulp-webapp` (folder name matters)
-- Get into it: `cd generator-simpler-gulp-webapp`
-- Create link: `npm link`
-- In your new project folder run: `yo simpler-gulp-webapp`
+- Install: `npm install -g generator-simpler-gulp-webapp`
+- Run `yo simpler-gulp-webapp`
 - Run `gulp` for building to the `dist` directory and `gulp serve` for preview
-
 
 #### Third-Party Dependencies
 
